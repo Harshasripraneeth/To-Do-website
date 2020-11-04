@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/css/styles.css">
+   <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+</head>
+
+<body>
+  <div class = "heading" >
+      <h1 >Hey! it's  <%= kindOfDay%></h1>
+  </div>
+ <div class="box">
+
+   <% notesList.forEach(function(note){ %>
+     <form action = "/delete" method = "post">
+       <div class="item">
+
+         <input type="checkbox" name="checkBox" value = <%= note._id%>  onchange="this.form.submit()" />
+           <p>
+              <%= note.name%>
+           </p>
+       </div>
+     </form>
+   <% });%>
+
+   <form  class= "item" action="/" method="post">
+   <input type="text" name="newNote" placeholder="enter your note">
+   <button type="submit" name="button">+</button>
+   </form>
+ </div>
+
+
+
+</body>
+
+</html>
